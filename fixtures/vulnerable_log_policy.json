@@ -1,0 +1,21 @@
+{
+  "policy_name": "vulnerable-unhardened-log-policy",
+  "version": "1.0.0",
+  "organization": "Insecure Infrastructure Example",
+  "redact_sensitive_fields": false,
+  "sensitive_fields": [],
+  "hash_chaining_enabled": false,
+  "hash_algorithm": "NONE",
+  "file_permissions": "0666",
+  "sanitize_control_chars": false,
+  "atomic_flock_enabled": false,
+  "rotation_enabled": false,
+  "max_file_size_mb": 1024,
+  "max_backups": 0,
+  "retention_days": 14,
+  "remote_forwarding_enabled": true,
+  "remote_transport_tls": false,
+  "timestamp_utc_iso8601": false,
+  "alert_on_write_failure": false,
+  "max_record_size_kb": 0
+}

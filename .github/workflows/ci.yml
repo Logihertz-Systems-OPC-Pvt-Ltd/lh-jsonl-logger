@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    name: PHP ${{ matrix.php-version }} Lint & Verification
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: ["8.2", "8.3", "8.4"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: hash, json, mbstring, spl
+          coverage: none
+
+      - name: Verify PHP syntax across all files
+        run: |
+          find src bin tests -type f -exec php -l {} +
+
+      - name: Execute zero-dependency test suite
+        run: |
+          php tests/run_tests.php
+
+      - name: Smoke-test CLI on hardened fixture
+        run: |
+          php bin/lh-logger scan fixtures/hardened_log_policy.json --format sarif
+          php bin/lh-logger scan fixtures/hardened_log_policy.json --format table
+
+      - name: Smoke-test CLI on vulnerable fixture (expected exit 1)
+        run: |
+          php bin/lh-logger scan fixtures/vulnerable_log_policy.json --format json || test $? -eq 1
+
+      - name: Smoke-test CLI verify-chain on sample fixture
+        run: |
+          php bin/lh-logger verify-chain fixtures/sample_audit_stream.jsonl
+
+      - name: Smoke-test CLI redact and write subcommands
+        run: |
+          php bin/lh-logger redact --input '{"username":"admin","password":"secretpassword"}'
+          php bin/lh-logger write --file /tmp/ci_test.jsonl --event ci.smoke_test --level INFO --data '{"status":"ok"}'

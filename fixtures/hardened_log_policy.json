@@ -1,0 +1,33 @@
+{
+  "policy_name": "enterprise-hardened-telemetry-policy",
+  "version": "1.0.0",
+  "organization": "Logihertz Systems (OPC) Private Limited",
+  "redact_sensitive_fields": true,
+  "sensitive_fields": [
+    "password",
+    "secret",
+    "token",
+    "api_key",
+    "apikey",
+    "authorization",
+    "cookie",
+    "cvv",
+    "credit_card",
+    "ssn",
+    "private_key"
+  ],
+  "hash_chaining_enabled": true,
+  "hash_algorithm": "SHA256",
+  "file_permissions": "0600",
+  "sanitize_control_chars": true,
+  "atomic_flock_enabled": true,
+  "rotation_enabled": true,
+  "max_file_size_mb": 100,
+  "max_backups": 10,
+  "retention_days": 180,
+  "remote_forwarding_enabled": true,
+  "remote_transport_tls": true,
+  "timestamp_utc_iso8601": true,
+  "alert_on_write_failure": true,
+  "max_record_size_kb": 64
+}

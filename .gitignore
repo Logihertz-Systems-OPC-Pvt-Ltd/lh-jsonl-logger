@@ -1,0 +1,27 @@
+# Composer
+vendor/
+composer.phar
+composer.lock
+
+# Runtime artifacts & logs
+*.log
+*.jsonl.1
+*.jsonl.2
+*.jsonl.3
+*.jsonl.4
+*.jsonl.5
+dist/
+build/
+
+# Whitelist test fixtures
+!fixtures/*.jsonl
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# IDE & Editor files
+.idea/
+.vscode/
+*.swp
+*.swo

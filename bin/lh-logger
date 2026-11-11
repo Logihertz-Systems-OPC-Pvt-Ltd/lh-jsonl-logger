@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+/**
+ * lh-logger: Enterprise Zero-Dependency Atomic JSONL Logger & Hash-Chain Verifier
+ *
+ * Command-Line Interface Entrypoint
+ *
+ * @author Sameer Tawade <ops@logihertz.com>
+ * @license Apache-2.0
+ */
+
+require_once __DIR__ . '/../src/Autoloader.php';
+
+\Logihertz\JsonlLogger\Autoloader::register();
+
+$app = new \Logihertz\JsonlLogger\CliApplication();
+exit($app->run($argv));

@@ -1,0 +1,42 @@
+{
+  "name": "logihertzsystems/lh-jsonl-logger",
+  "description": "Zero-dependency enterprise PHP 8.2+ atomic file-locked NDJSON/JSONL telemetry logger, tamper-evident SHA-256 hash-chain verifier, PII redaction engine, and 10-rule logging posture auditor with SARIF v2.1.0 reporting.",
+  "type": "library",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "logihertzsystems",
+      "email": "ops@logihertz.com",
+      "homepage": "https://github.com/logihertzsystems"
+    },
+    {
+      "name": "Sameer Tawade",
+      "email": "ops@logihertz.com",
+      "role": "Creator, Founder, Director & Sole Developer"
+    }
+  ],
+  "support": {
+    "email": "ops@logihertz.com",
+    "issues": "https://github.com/Logihertz-Systems-OPC-Pvt-Ltd/lh-jsonl-logger/issues",
+    "source": "https://github.com/Logihertz-Systems-OPC-Pvt-Ltd/lh-jsonl-logger"
+  },
+  "require": {
+    "php": ">=8.2.0",
+    "ext-hash": "*",
+    "ext-json": "*",
+    "ext-spl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Logihertz\\JsonlLogger\\": "src/"
+    }
+  },
+  "bin": [
+    "bin/lh-logger"
+  ],
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true
+  },
+  "minimum-stability": "stable"
+}
