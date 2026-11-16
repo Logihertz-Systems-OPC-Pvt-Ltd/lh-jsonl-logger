@@ -1,0 +1,9 @@
+Package: lh-jsonl-logger
+Version: 0.1.0
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: Sameer Tawade <ops@logihertz.com>
+Homepage: https://www.logihertz.com
+Description: lh-logger - Tamper-Evident SHA-256 Cryptographic Hash Chaining Invariant
+ High-throughput PHP 8.2+ atomic flock NDJSON/JSONL telemetry logger with tamper-evident SHA-256 cryptographic hash chaining, recursive PII/secret redaction, CRLF sanitization, and CERT-In log posture auditor.
